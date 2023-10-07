@@ -14,7 +14,7 @@ monthly_challenges = {
     "september": "Walk for at least 20 minutes every day!",
     "october": "Learn Django for at least 20 minutes every day",
     "november": "Eat no meat for the entire month!",
-    "december": "Walk for at least 20 minutes every day!",
+    "december": None,
 }
 
 def index(request):
