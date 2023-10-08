@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %} 
-This Post Title 
+{{ post.title }}
 {%endblock title %} 
 
 {% block css_files %} 
@@ -11,32 +11,15 @@ This Post Title
 
 {% block content %}
 <section id="summary">
-  <h2>Post Title</h2>
+  <h2>{{ post.title }}</h2>
   <article>
     <img src="{% static "blog/images/mountains.jpg" %}" alt="Post Title">
-    <address>By Ali</address>
-    <div>Last updated on <time> October 8th</time></div>
+    <address>By {{ post.author}}</address>
+    <div>Last updated on <time> {{post.date|date:"D M Y"}} </time></div>
   </article>
 </section>
 
 <main>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
-    voluptatibus, modi eos natus non nam tempora, sit placeat totam tempore
-    accusantium a officiis. Harum aperiam libero fugit voluptatibus, cumque
-    porro?
-  </p>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
-    voluptatibus, modi eos natus non nam tempora, sit placeat totam tempore
-    accusantium a officiis. Harum aperiam libero fugit voluptatibus, cumque
-    porro?
-  </p>
-  <p>
-    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Molestias
-    voluptatibus, modi eos natus non nam tempora, sit placeat totam tempore
-    accusantium a officiis. Harum aperiam libero fugit voluptatibus, cumque
-    porro?
-  </p>
+  {{ post.content|linebreaks}}
 </main>
 {% endblock %}
