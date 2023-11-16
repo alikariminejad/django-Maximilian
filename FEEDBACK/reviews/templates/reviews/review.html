@@ -8,7 +8,10 @@
 <body>
     <form action="/" method="POST">
         {% csrf_token %}
-        {{ form }}
+        <div class="form-control {% if form.user_name.errors %}erros{% endif %}"></div>
+        {{ form.user_name.label_tag }}
+        {{ form.user_name }}
+        {{ form.user_name.errors }}
         <button type="submit">Send</button>
     </form>
 </body>
