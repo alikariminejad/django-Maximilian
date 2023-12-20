@@ -5,12 +5,13 @@ from django.views import View
 from .forms import ReviewForm
 from django.views.generic.base import TemplateView
 from django.views.generic import ListView, DetailView
-from django.views.generic.edit import FormView
+from django.views.generic.edit import CreateView
 from .models import Review
 
 
-class ReviewView(FormView):
-    form_class = ReviewForm
+class ReviewView(CreateView):
+    model = Review
+    fields = "__all__"
     template_name = "reviews/review.html"
     success_url = "/thank-you"
     def form_valid(self, form):
